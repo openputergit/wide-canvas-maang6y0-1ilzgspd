@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaParlay - User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2dd4bf 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .text-shadow {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2dd4bf;
+            border-radius: 10px;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #ffd700; }
+            50% { box-shadow: 0 0 15px #ffd700; }
+            100% { box-shadow: 0 0 5px #ffd700; }
+        }
+
+        .avatar-glow {
+            animation: glow 2s infinite;
+        }
+
+        .bet-entry {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="w-[400px] h-[600px] bg-white/10 rounded-lg border-2 border-white overflow-hidden relative">
+        <!-- Header -->
+        <div class="h-[60px] flex items-center justify-between px-4 glass">
+            <button class="w-[30px] h-[30px] bg-[#2dd4bf] hover:bg-[#0d9488] rounded flex items-center justify-center">
+                <i class="bi bi-arrow-left text-white"></i>
+            </button>
+            <div class="flex items-center gap-2">
+                <i class="bi bi-dice-6-fill text-[#ffd700] text-xl"></i>
+                <span class="text-[#ffd700] font-bold text-xl">MegaParlay</span>
+            </div>
+            <div class="bg-white rounded px-2 py-1">
+                <span class="text-xs text-black">Powered by Farcaster</span>
+            </div>
+        </div>
+
+        <!-- Profile Summary -->
+        <div class="h-[120px] m-4 p-4 glass rounded-lg">
+            <div class="flex flex-col items-center">
+                <div class="w-[60px] h-[60px] rounded-full border-2 border-[#ffd700] avatar-glow overflow-hidden mb-2">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=user1" alt="Avatar" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-white font-bold text-lg text-shadow">User1</h2>
+                <div class="flex gap-4 mt-2">
+                    <div class="text-[#ffd700] font-bold">Rank: #12</div>
+                    <div class="text-[#ffd700] font-bold">Profits: 1200 MON</div>
+                    <div class="text-[#ffd700] font-bold">Accuracy: 78%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Betting History -->
+        <div class="mx-4 glass rounded-lg p-4 h-[340px]">
+            <h3 class="text-[#ffd700] font-bold text-center mb-4">Betting History</h3>
+            <div class="overflow-y-auto custom-scrollbar h-[290px]">
+                <div class="bet-entry p-3 border-b border-white/20 mb-2">
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-white text-sm">Will ETH reach $3000 by EOY?</div>
+                            <div class="text-white/70 text-xs">Bought 50 Yes shares at 75¢</div>
+                        </div>
+                        <div class="text-[#22c55e] text-sm">+200 MON</div>
+                    </div>
+                </div>
+                <!-- More bet entries -->
+                <div class="bet-entry p-3 border-b border-white/20 mb-2">
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-white text-sm">Will it rain this afternoon?</div>
+                            <div class="text-white/70 text-xs">Bought 30 No shares at 50¢</div>
+                        </div>
+                        <div class="text-[#ef4444] text-sm">-50 MON</div>
+                    </div>
+                </div>
+                <div class="bet-entry p-3 border-b border-white/20">
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-white text-sm">BTC above $40k next week?</div>
+                            <div class="text-white/70 text-xs">Bought 100 Yes shares at 25¢</div>
+                        </div>
+                        <div class="text-white text-sm">Pending</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="absolute bottom-0 w-full h-[80px] bg-[#1e3a8a] flex justify-around items-center">
+            <button class="w-[100px] h-[50px] bg-[#2dd4bf] hover:bg-[#0d9488] rounded flex flex-col items-center justify-center">
+                <i class="bi bi-house-door text-white text-2xl"></i>
+                <span class="text-white text-xs">Home</span>
+            </button>
+            <button class="w-[100px] h-[50px] bg-[#2dd4bf] hover:bg-[#0d9488] rounded flex flex-col items-center justify-center">
+                <i class="bi bi-trophy text-white text-2xl"></i>
+                <span class="text-white text-xs">Leaderboard</span>
+            </button>
+            <button class="w-[100px] h-[50px] bg-[#2dd4bf] border-2 border-[#ffd700] rounded flex flex-col items-center justify-center shadow-[0_0_5px_#ffd700]">
+                <i class="bi bi-person text-white text-2xl"></i>
+                <span class="text-white text-xs">Profile</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.share-btn')?.addEventListener('click', () => {
+            const shareText = "I've earned 1200 MON on MegaParlay with 78% accuracy! Join me!";
+            // Implement Farcaster sharing functionality here
+            alert('Sharing to Farcaster: ' + shareText);
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
